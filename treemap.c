@@ -120,12 +120,14 @@ void removeNode(TreeMap * tree, TreeNode* node) {
             if(node->left != NULL)
             {
                 padre->left = node->left;
+                node->left->parent = padre;
                 free(node);
             }
 
             if (node->right != NULL)
             {
                 padre->left = node->right;
+                node->right->parent = padre;
                 free(node);
             }   
         }
@@ -134,12 +136,14 @@ void removeNode(TreeMap * tree, TreeNode* node) {
             if(node->left != NULL)
             {
                 padre->right = node->left;
+                node->left->parent = padre;
                 free(node);
             }
 
             if (node->right != NULL)
             {
                 padre->right = node->right;
+                node->right->parent = padre;
                 free(node);
             }  
         }
