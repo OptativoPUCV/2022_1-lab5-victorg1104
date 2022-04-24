@@ -113,41 +113,6 @@ void removeNode(TreeMap * tree, TreeNode* node) {
         }
         
     }
-    else if ((node->left != NULL) || (node->right != NULL))
-    {
-        if (padre->left == node)
-        {
-            if(node->left != NULL)
-            {
-                node->left->parent = padre;
-                padre->left = node->left;
-                free(node);
-            }
-
-            if (node->right != NULL)
-            {
-                node->right->parent = padre;
-                padre->left = node->right;
-                free(node);
-            }   
-        }
-        else if (padre->right == node)
-        {
-            if(node->left != NULL)
-            {
-                node->left->parent = padre;
-                padre->right = node->left;
-                free(node);
-            }
-
-            if (node->right != NULL)
-            {
-                node->right->parent = padre;
-                padre->right = node->right;
-                free(node);
-            }  
-        }
-    }
     else if ((node->left != NULL) && (node->right != NULL))
     {
         TreeNode* minimo = minimum(node->right);
@@ -156,7 +121,39 @@ void removeNode(TreeMap * tree, TreeNode* node) {
 
         removeNode(tree, minimo);
     }    
-
+    else if ((node->left != NULL) || (node->right != NULL))
+    {
+        if (padre->right == node)
+        {
+            if(node->right != NULL)
+            {
+                node->right->parent = padre;
+                padre->right = node->right;
+                free(node);
+            }
+            if (node->left != NULL)
+            {
+                node->left->parent = padre;
+                padre->right = node->left;
+                free(node);
+            }
+        }
+        else if (padre->left == node)
+        {
+            if(node->right != NULL)
+            {
+                node->right->parent = padre;
+                padre->left = node->right;
+                free(node);
+            }
+            if(node->left != NULL)
+            {
+                node->left->parent = padre;
+                padre->left = node->left;
+                free(node);
+            }
+        }
+    }
 }
 
 void eraseTreeMap(TreeMap * tree, void* key){
