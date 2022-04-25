@@ -203,5 +203,6 @@ Pair * nextTreeMap(TreeMap * tree) {
         tree->current = minimum(tree->current->right);
         return tree->current->pair;
     }
-    return NULL;
+
+    return tree->root;
 }
