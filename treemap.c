@@ -190,17 +190,17 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
 
 Pair * upperBound(TreeMap * tree, void* key) {
     Pair* ub_node = searchTreeMap(tree, key);
-    //Pair* aux = firstTreeMap(tree);
+    Pair* aux = firstTreeMap(tree);
 
     if(ub_node != NULL) return ub_node;
-    /*
+    
     while (tree->lower_than(aux->key, key))
     {
        aux = nextTreeMap(tree);
     }
 
     return aux;
-    */
+    
    return NULL;
 }
 
