@@ -198,7 +198,6 @@ Pair * firstTreeMap(TreeMap * tree) {
 }
 
 Pair * nextTreeMap(TreeMap * tree) {
-    TreeNode* padre = tree->current->parent;
 
     if (tree->current->right != NULL)
     {
@@ -207,11 +206,13 @@ Pair * nextTreeMap(TreeMap * tree) {
     }
     else
     {
+        TreeNode * padre = tree->current->parent;
         while (padre->pair->key < tree->current->pair->key)
         {
             if(padre->pair->key != tree->root->pair->key) padre = padre->parent;
             else return NULL;
         }
+
         tree->current = padre;
         return tree->current->pair;
     }
