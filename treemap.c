@@ -196,7 +196,7 @@ Pair * upperBound(TreeMap * tree, void* key) {
     
     while (lower_than_int(aux->key, key))
     {
-       aux = nextTreeMap;
+       aux = nextTreeMap(tree);
     }
 
     return aux;
