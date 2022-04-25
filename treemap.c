@@ -194,14 +194,12 @@ Pair * upperBound(TreeMap * tree, void* key) {
 
     if(ub_node != NULL) return ub_node;
     
-    while (tree->lower_than(aux->key, key))
+    while (tree->lower_than(aux->key, key) && (aux != NULL))
     {
        aux = nextTreeMap(tree);
     }
 
     return aux;
-    
-   return NULL;
 }
 
 Pair * firstTreeMap(TreeMap * tree) {
