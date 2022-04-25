@@ -198,7 +198,8 @@ Pair * firstTreeMap(TreeMap * tree) {
 }
 
 Pair * nextTreeMap(TreeMap * tree) {
-    TreeNode* padre = tree->current->parent; 
+    TreeNode* padre = tree->current->parent;
+
     if (tree->current->right != NULL)
     {
         tree->current = minimum(tree->current->right);
@@ -208,7 +209,6 @@ Pair * nextTreeMap(TreeMap * tree) {
     {
         while (padre->pair->key < tree->current->pair->key)
         {
-            if (padre == tree->root) return NULL;
             padre = padre->parent;
         }
         tree->current = padre;
