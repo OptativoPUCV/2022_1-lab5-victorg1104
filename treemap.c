@@ -208,8 +208,8 @@ Pair * nextTreeMap(TreeMap * tree) {
     {
         while (padre->pair->key < tree->current->pair->key)
         {
+            if (padre == tree->root) return NULL;
             padre = padre->parent;
-            if (padre == tree->root) return tree->current->pair;
         }
         tree->current = padre;
         return tree->current->pair;
