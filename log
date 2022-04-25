@@ -206,3 +206,17 @@ treemap.c:199:12: error: assignment from incompatible pointer type [-Werror=inco
 cc1.exe: all warnings being treated as errors
 Compilation failed
 22a5751
+Sun Apr 24 23:17:58 HSP 2022: 
+ treemap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:0:
+treemap.c: In function 'upperBound':
+treemap.c:197:12: error: implicit declaration of function 'islower_than_int' [-Werror=implicit-function-declaration]
+     while (islower_than_int(aux->key, key))
+            ^~~~~~~~~~~~~~~~
+treemap.c:199:12: error: assignment from incompatible pointer type [-Werror=incompatible-pointer-types]
+        aux = nextTreeMap;
+            ^
+cc1.exe: all warnings being treated as errors
+Compilation failed
+cb2c23c
